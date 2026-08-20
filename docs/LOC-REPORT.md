@@ -1,89 +1,140 @@
 # LOC-REPORT (V2)
 
-**Total counted source lines:** 5361
+**Total counted source lines:** 10397
 
 ## By folder
 
-- `cics`: 70
-- `cobol`: 4371
-- `copybook`: 286
-- `db2`: 149
-- `jcl`: 485
+- `cics`: 486
+- `cobol`: 7868
+- `copybook`: 765
+- `db2`: 372
+- `jcl`: 906
 
 ## COBOL PROGRAM-IDs
 
+- BKABD01
 - BKAC01
 - BKAC02
+- BKACH01
+- BKACH02
+- BKAD01
 - BKAML01
 - BKAT01
 - BKAT02
 - BKATM03
 - BKBR01
+- BKCA01
+- BKCAL01
 - BKCF01
 - BKCKP01
+- BKCRD01
 - BKCS01
 - BKCS02
 - BKCS03
+- BKCTR01
 - BKDMT01
+- BKESC01
+- BKFEA01
 - BKFIL01
+- BKFLT01
 - BKFX01
+- BKGDG01
 - BKGL01
+- BKGL02
 - BKHD01
 - BKHEX01
+- BKHLD02
 - BKHT01
 - BKINT01
 - BKIQ01
 - BKIQ02
 - BKIQ03
+- BKLP01
+- BKMEM01
 - BKMRG01
 - BKNSF01
 - BKNSTR01
 - BKNTE01
 - BKNTF01
+- BKOD01
+- BKOFC01
 - BKOP01
+- BKPP01
+- BKPPY01
 - BKPST01
 - BKRCN01
 - BKRCN02
+- BKRCN03
 - BKRPT01
 - BKRPT02
+- BKSP01
+- BKSTM01
 - BKSUS01
+- BKSW01
+- BKTAX01
 - BKTL01
 - BKTR01
+- BKUCP01
 - BKVLD01
 - BKVLT01
 - BKWIR01
+- BKZBA01
 
 ## JCL members
 
 - BADORDER.jcl
+- BKABD000.jcl
+- BKACH000.jcl
+- BKACH002.jcl
+- BKACHPR.proc
 - BKAML000.jcl
 - BKATM000.jcl
+- BKCAL000.jcl
 - BKCLO000.jcl
+- BKCRD000.jcl
+- BKCTR000.jcl
 - BKDLY000.jcl
 - BKDMT000.jcl
 - BKENA000.jcl
+- BKESC000.jcl
+- BKFEA000.jcl
 - BKFILEA.jcl
 - BKFILET.jcl
 - BKFILEW.jcl
+- BKFLT000.jcl
 - BKGDG000.jcl
+- BKGDG001.jcl
 - BKGL0000.jcl
+- BKGL2000.jcl
+- BKGL2PR.proc
 - BKHEX000.jcl
+- BKHLD000.jcl
 - BKHSK000.jcl
 - BKHT0000.jcl
 - BKINH000.jcl
 - BKINT000.jcl
+- BKMEM000.jcl
 - BKMRG000.jcl
 - BKNSF000.jcl
 - BKNST000.jcl
+- BKOFC000.jcl
+- BKPPY000.jcl
 - BKPST000.jcl
 - BKPSTPR.proc
+- BKRC3PR.proc
 - BKRCN000.jcl
+- BKRCN300.jcl
 - BKRPT000.jcl
+- BKSDD000.jcl
 - BKSORT00.jcl
+- BKSTM000.jcl
 - BKSUS000.jcl
+- BKTAX000.jcl
+- BKUCP000.jcl
 - BKVLDPR.proc
 - BKVLT000.jcl
 - BKWIR000.jcl
+- BKZBA000.jcl
 - RCNVATM.jcl
 - RCNVCORR.jcl
 - RCNVEAST.jcl
@@ -91,42 +142,70 @@
 
 ## Files with line counts
 
-- `cics/BKACMS.bms`: 10
-- `cics/BKATMS.bms`: 8
-- `cics/BKCFMS.bms`: 10
-- `cics/BKCSMS.bms`: 8
-- `cics/BKIQMS.bms`: 9
-- `cics/BKSTMS.bms`: 8
-- `cics/BKTRMS.bms`: 9
-- `cics/BKWIMS.bms`: 8
-- `cobol/batch/BKAML01.cbl`: 87
-- `cobol/batch/BKATM03.cbl`: 88
-- `cobol/batch/BKCKP01.cbl`: 101
-- `cobol/batch/BKDMT01.cbl`: 78
-- `cobol/batch/BKFIL01.cbl`: 98
-- `cobol/batch/BKGL01.cbl`: 107
-- `cobol/batch/BKHEX01.cbl`: 94
-- `cobol/batch/BKHT01.cbl`: 104
-- `cobol/batch/BKINT01.cbl`: 92
-- `cobol/batch/BKMRG01.cbl`: 103
-- `cobol/batch/BKNSF01.cbl`: 98
-- `cobol/batch/BKNSTR01.cbl`: 84
-- `cobol/batch/BKNTE01.cbl`: 79
-- `cobol/batch/BKNTF01.cbl`: 77
-- `cobol/batch/BKPST01.cbl`: 154
-- `cobol/batch/BKRCN01.cbl`: 151
-- `cobol/batch/BKRCN02.cbl`: 93
-- `cobol/batch/BKRPT01.cbl`: 93
-- `cobol/batch/BKRPT02.cbl`: 88
-- `cobol/batch/BKSUS01.cbl`: 102
-- `cobol/batch/BKVLD01.cbl`: 154
-- `cobol/batch/BKVLT01.cbl`: 87
-- `cobol/batch/BKWIR01.cbl`: 94
+- `cics/BKACMS.bms`: 43
+- `cics/BKATMS.bms`: 36
+- `cics/BKCAMS.bms`: 35
+- `cics/BKCFMS.bms`: 43
+- `cics/BKCSMS.bms`: 34
+- `cics/BKIQMS.bms`: 35
+- `cics/BKLNMS.bms`: 32
+- `cics/BKOPMS.bms`: 31
+- `cics/BKPPMS.bms`: 30
+- `cics/BKSPMS.bms`: 38
+- `cics/BKSTMS.bms`: 31
+- `cics/BKSWMS.bms`: 30
+- `cics/BKTRMS.bms`: 31
+- `cics/BKWIMS.bms`: 37
+- `cobol/batch/BKABD01.cbl`: 69
+- `cobol/batch/BKACH01.cbl`: 219
+- `cobol/batch/BKACH02.cbl`: 153
+- `cobol/batch/BKAML01.cbl`: 86
+- `cobol/batch/BKATM03.cbl`: 87
+- `cobol/batch/BKCAL01.cbl`: 111
+- `cobol/batch/BKCKP01.cbl`: 100
+- `cobol/batch/BKCRD01.cbl`: 146
+- `cobol/batch/BKCTR01.cbl`: 98
+- `cobol/batch/BKDMT01.cbl`: 77
+- `cobol/batch/BKESC01.cbl`: 115
+- `cobol/batch/BKFEA01.cbl`: 119
+- `cobol/batch/BKFIL01.cbl`: 97
+- `cobol/batch/BKFLT01.cbl`: 135
+- `cobol/batch/BKGDG01.cbl`: 108
+- `cobol/batch/BKGL01.cbl`: 106
+- `cobol/batch/BKGL02.cbl`: 131
+- `cobol/batch/BKHEX01.cbl`: 93
+- `cobol/batch/BKHLD02.cbl`: 108
+- `cobol/batch/BKHT01.cbl`: 103
+- `cobol/batch/BKINT01.cbl`: 91
+- `cobol/batch/BKMEM01.cbl`: 115
+- `cobol/batch/BKMRG01.cbl`: 102
+- `cobol/batch/BKNSF01.cbl`: 97
+- `cobol/batch/BKNSTR01.cbl`: 83
+- `cobol/batch/BKNTE01.cbl`: 78
+- `cobol/batch/BKNTF01.cbl`: 76
+- `cobol/batch/BKOFC01.cbl`: 133
+- `cobol/batch/BKPPY01.cbl`: 136
+- `cobol/batch/BKPST01.cbl`: 153
+- `cobol/batch/BKRCN01.cbl`: 150
+- `cobol/batch/BKRCN02.cbl`: 92
+- `cobol/batch/BKRCN03.cbl`: 162
+- `cobol/batch/BKRPT01.cbl`: 92
+- `cobol/batch/BKRPT02.cbl`: 87
+- `cobol/batch/BKSTM01.cbl`: 114
+- `cobol/batch/BKSUS01.cbl`: 101
+- `cobol/batch/BKTAX01.cbl`: 99
+- `cobol/batch/BKUCP01.cbl`: 125
+- `cobol/batch/BKVLD01.cbl`: 153
+- `cobol/batch/BKVLT01.cbl`: 86
+- `cobol/batch/BKWIR01.cbl`: 93
+- `cobol/batch/BKZBA01.cbl`: 153
 - `cobol/online/BKAC01.cbl`: 122
 - `cobol/online/BKAC02.cbl`: 124
+- `cobol/online/BKAD01.cbl`: 117
 - `cobol/online/BKAT01.cbl`: 127
 - `cobol/online/BKAT02.cbl`: 130
 - `cobol/online/BKBR01.cbl`: 103
+- `cobol/online/BKCA01.cbl`: 131
 - `cobol/online/BKCF01.cbl`: 127
 - `cobol/online/BKCS01.cbl`: 142
 - `cobol/online/BKCS02.cbl`: 140
@@ -136,71 +215,120 @@
 - `cobol/online/BKIQ01.cbl`: 107
 - `cobol/online/BKIQ02.cbl`: 112
 - `cobol/online/BKIQ03.cbl`: 110
+- `cobol/online/BKLP01.cbl`: 160
+- `cobol/online/BKOD01.cbl`: 131
 - `cobol/online/BKOP01.cbl`: 103
+- `cobol/online/BKPP01.cbl`: 139
+- `cobol/online/BKSP01.cbl`: 185
+- `cobol/online/BKSW01.cbl`: 108
 - `cobol/online/BKTL01.cbl`: 119
 - `cobol/online/BKTR01.cbl`: 133
 - `copybook/BKACC.cpy`: 22
+- `copybook/BKACH.cpy`: 103
 - `copybook/BKATM.cpy`: 12
+- `copybook/BKAVL.cpy`: 26
 - `copybook/BKBRN.cpy`: 9
-- `copybook/BKCIF.cpy`: 10
+- `copybook/BKCAL.cpy`: 19
+- `copybook/BKCICM.cpy`: 25
+- `copybook/BKCIF.cpy`: 15
+- `copybook/BKCRD.cpy`: 47
 - `copybook/BKCTL.cpy`: 19
+- `copybook/BKCTR.cpy`: 18
+- `copybook/BKESC.cpy`: 19
 - `copybook/BKFIL.cpy`: 13
 - `copybook/BKGL.cpy`: 11
-- `copybook/BKHLD.cpy`: 13
+- `copybook/BKGLMP.cpy`: 25
+- `copybook/BKHLD.cpy`: 18
 - `copybook/BKINT.cpy`: 9
 - `copybook/BKJRN.cpy`: 23
+- `copybook/BKLOAN.cpy`: 24
 - `copybook/BKLOC.cpy`: 25
 - `copybook/BKMSG.cpy`: 19
 - `copybook/BKNSF.cpy`: 13
+- `copybook/BKOFAC.cpy`: 22
+- `copybook/BKPPY.cpy`: 34
 - `copybook/BKRCN.cpy`: 22
 - `copybook/BKRST.cpy`: 12
 - `copybook/BKSQL.cpy`: 15
+- `copybook/BKSQLM.cpy`: 25
+- `copybook/BKSTP.cpy`: 27
+- `copybook/BKTAX.cpy`: 18
 - `copybook/BKTLL.cpy`: 10
 - `copybook/BKTRL.cpy`: 11
 - `copybook/BKTRN.cpy`: 18
-- `db2/schema_v2.sql`: 149
+- `copybook/BKUCP.cpy`: 17
+- `copybook/BKZBA.cpy`: 20
+- `db2/schema_v2.sql`: 372
 - `jcl/ctl/BKGDGCTL.txt`: 4
+- `jcl/ctl/BKNACHA.txt`: 3
+- `jcl/ctl/BKPPYSORT.txt`: 1
+- `jcl/ctl/BKSDNCTL.txt`: 2
 - `jcl/ctl/BKSRTCNT.txt`: 2
 - `jcl/jobs/BADORDER.jcl`: 16
+- `jcl/jobs/BKABD000.jcl`: 20
+- `jcl/jobs/BKACH000.jcl`: 37
+- `jcl/jobs/BKACH002.jcl`: 21
 - `jcl/jobs/BKAML000.jcl`: 9
 - `jcl/jobs/BKATM000.jcl`: 9
+- `jcl/jobs/BKCAL000.jcl`: 17
 - `jcl/jobs/BKCLO000.jcl`: 19
+- `jcl/jobs/BKCRD000.jcl`: 24
+- `jcl/jobs/BKCTR000.jcl`: 13
 - `jcl/jobs/BKDLY000.jcl`: 17
 - `jcl/jobs/BKDMT000.jcl`: 9
 - `jcl/jobs/BKENA000.jcl`: 12
+- `jcl/jobs/BKESC000.jcl`: 13
+- `jcl/jobs/BKFEA000.jcl`: 20
 - `jcl/jobs/BKFILEA.jcl`: 12
 - `jcl/jobs/BKFILET.jcl`: 12
 - `jcl/jobs/BKFILEW.jcl`: 12
+- `jcl/jobs/BKFLT000.jcl`: 17
 - `jcl/jobs/BKGDG000.jcl`: 9
+- `jcl/jobs/BKGDG001.jcl`: 15
 - `jcl/jobs/BKGL0000.jcl`: 18
+- `jcl/jobs/BKGL2000.jcl`: 20
 - `jcl/jobs/BKHEX000.jcl`: 9
+- `jcl/jobs/BKHLD000.jcl`: 21
 - `jcl/jobs/BKHSK000.jcl`: 12
 - `jcl/jobs/BKHT0000.jcl`: 9
 - `jcl/jobs/BKINH000.jcl`: 13
 - `jcl/jobs/BKINT000.jcl`: 10
+- `jcl/jobs/BKMEM000.jcl`: 13
 - `jcl/jobs/BKMRG000.jcl`: 19
 - `jcl/jobs/BKNSF000.jcl`: 9
 - `jcl/jobs/BKNST000.jcl`: 9
+- `jcl/jobs/BKOFC000.jcl`: 17
+- `jcl/jobs/BKPPY000.jcl`: 17
 - `jcl/jobs/BKPST000.jcl`: 26
 - `jcl/jobs/BKRCN000.jcl`: 19
+- `jcl/jobs/BKRCN300.jcl`: 20
 - `jcl/jobs/BKRPT000.jcl`: 11
+- `jcl/jobs/BKSDD000.jcl`: 21
 - `jcl/jobs/BKSORT00.jcl`: 19
+- `jcl/jobs/BKSTM000.jcl`: 13
 - `jcl/jobs/BKSUS000.jcl`: 12
+- `jcl/jobs/BKTAX000.jcl`: 13
+- `jcl/jobs/BKUCP000.jcl`: 13
 - `jcl/jobs/BKVLT000.jcl`: 16
 - `jcl/jobs/BKWIR000.jcl`: 16
+- `jcl/jobs/BKZBA000.jcl`: 13
 - `jcl/jobs/RCNVATM.jcl`: 19
 - `jcl/jobs/RCNVCORR.jcl`: 19
 - `jcl/jobs/RCNVEAST.jcl`: 19
 - `jcl/jobs/RCNVWEST.jcl`: 19
+- `jcl/proc/BKACHPR.proc`: 19
+- `jcl/proc/BKGL2PR.proc`: 9
 - `jcl/proc/BKPSTPR.proc`: 16
+- `jcl/proc/BKRC3PR.proc`: 9
 - `jcl/proc/BKVLDPR.proc`: 24
 
 ## Uniqueness spot-check
 
-Programs share copybooks and SQLCODE mapper by design.
-Procedure business rules differ: CIF vs open vs status vs deposit vs
-withdraw/NSF vs transfer vs ATM pair vs validate/hash vs post/checkpoint
-vs recon vs GL gate vs suspense FORCE vs vault vs interest vs dormant vs wire BIC.
-No DISPLAY padding; no cloned PROGRAM-ID-only copies.
+Procedure text compared after dropping shared `8000-MAP-SQL` mapper.
+Largest programs compared; worst Jaccard among top-8: **0.18** (BKPST01.cbl vs BKVLD01.cbl).
+No pair among the largest 8 exceeded 40% identical procedure lines.
 
-_Target 9000–12000; actual 5361._
+Programs share copybooks and SQLCODE mapper by design.
+No DISPLAY padding; no PROGRAM-ID-only clones.
+
+_Target 9000–12000; actual 10397. IN RANGE._
