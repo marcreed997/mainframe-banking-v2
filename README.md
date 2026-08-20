@@ -7,7 +7,7 @@ settlement (HQ, RGN-EAST, RGN-WEST, ATM-NET, CORR-BANK), wait states when
 files or predecessors are missing, and JCL RC handling so **out-of-order
 runs fail closed** instead of double-posting money.
 
-**Counted source lines:** 5361 (see `docs/LOC-REPORT.md`).
+**Counted source lines:** 10397 (see `docs/LOC-REPORT.md`).
 
 ## Happy-path daily order
 
