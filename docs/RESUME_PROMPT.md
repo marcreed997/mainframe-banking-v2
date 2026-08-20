@@ -1,4 +1,5 @@
 # Resume prompt — AI Cluster / Mainframe V2
+**Session close: 2026-08-20 ~19:52 EDT**
 
 Copy everything between `BEGIN RESUME` and `END RESUME` into a **new** session.
 
@@ -29,78 +30,76 @@ Windows workstation: Xeon w5-2445, RTX A4000 16GB, 64GB RAM, **D:** data drive.
 | V1 COBOL (five programs) | `D:\AIcomp\testcpl` — **leave untouched** |
 | Live agents | `D:\AIcomp\agents` |
 | Spring Boot V1 port | `D:\AIcomp\modernized\bank-system-java` |
-| V2 mainframe source | `D:\AIcomp\mainframe-banking-v2` (create via script below if missing) |
+| V2 mainframe source | `D:\AIcomp\mainframe-banking-v2` (**verified present**) |
 
 ## Canonical repos
 
 1. Cluster / agents / backlog: https://github.com/marcreed997/grok/tree/main/projects/ai-cluster
-2. **V2 source (new, public):** https://github.com/marcreed997/mainframe-banking-v2  
-   Commit: `b113ca7` — *Correct LOC-REPORT: 10397 distinct source lines, uniqueness check*  
-   Do not confuse with V1 under `testcpl`.
+2. **V2 source (public):** https://github.com/marcreed997/mainframe-banking-v2  
+   HEAD at close of 2026-08-20 session: `f28aa35` (and subsequent resume update)
 
 ## What is already done — do not redo
 
+### Platform & V1
 - Workstation GPU / Docker / Ollama / Memgraph lab is up.
 - V1 five COBOL programs modernized to Spring Boot + Compose + Postgres (`bankdb` + `bank_audit`) + AuditWriter.
 - KG P0 seed, Converter BL-030 fidelity, ingest_scan BL-050c–e / 050d / 054c, SHARES_MAP / PRODUCES_FOR, 3270.html, /health.
-- INTERIM_REVIEW + BACKLOG through BL-067. BL-056 still deferred.
-- **V2 generated and pushed.** Inventory (authoritative = `docs/LOC-REPORT.md`, not the README summary if they disagree):
-  - **10,397** counted source lines (cics 486, cobol 7868, copybook 765, db2 372, jcl 906)
-  - 67 COBOL PROGRAM-IDs, 35 copybooks, 14 BMS maps, 57+ JCL members
-  - Worst procedure Jaccard among largest programs **0.18** (not clones)
-  - Locations: HQ, RGNEAST, RGNWEST, ATMNET, CORRBANK
-  - RC contract 0/4/8/12/16; wait states coded (file, CICS inhibit, ENQ, GDG, predecessor)
-  - **No Java/Spring port of V2** (prompt forbade it)
+- INTERIM_REVIEW + BACKLOG through BL-068. BL-056 still deferred.
 
-V2 generation prompt (already executed): project file `V2_MAINFRAME_BANKING_GENERATION_PROMPT.md`. Do not regenerate V2 unless uniqueness/LOC is proven broken.
+### V2 source (verified 2026-08-20)
+- Local clone at `D:\AIcomp\mainframe-banking-v2` confirmed:
+  - 67 `.cbl`, 35 `.cpy`, 14 `.bms`
+  - LOC-REPORT total = **10397**
+  - V1 path (`testcpl`) still present and untouched
+- Setup script exists: `D:\AIcomp\Setup-MainframeBankingV2.ps1`
 
-## Current gap
+### V2 job network in Memgraph (verified 2026-08-20)
+Manual bootstrap seed completed and verified:
 
-V2 exists on GitHub. It may **not** yet exist on `D:\`. Memgraph still has the V1-shaped graph. Next work is **local clone, then KG ingest of V2 jobs + wait edges** — not converting V2, not rewriting V1, not BL-056.
+| Metric | Value |
+|--------|-------|
+| `JclJob` nodes (suite='V2') | **30** |
+| `PREDECESSOR_OF` edges | **~31** |
+| `WaitGate` nodes | **10** |
+| Happy-path length BKCAL000 → BKENA000 | **14** |
 
-## This session — one deliverable
+WaitGate types present and verified:
+- FILE_EXISTENCE ×4 (RC 8)
+- ALL_LOCS_ARRIVED (RC 8)
+- CICS_INHIBITED (RC 12)
+- RESOURCE_LOCK (RC 8)
+- RECON_CLOSED (RC 8)
+- VALIDATED_IND (RC 8)
+- GDG_READY (RC 12)
 
-**Deliverable A (do first if `D:\AIcomp\mainframe-banking-v2` is missing):**
+This seed is now **institutional memory** and the evaluation gold standard for future agent work.
 
-Run the PowerShell script `Setup-MainframeBankingV2.ps1` (paste from the last session / project artifacts). It:
+### Architectural capture
+- **BL-068** added and committed on the cluster repo (`b8fc8c6`):
+  *Agent-driven Ground Zero for job network & wait semantics*
+  Manual Cypher was a necessary bootstrap only. Mature path requires an IngestionAgent / JobNetworkIngestionAgent that discovers the graph from source with provenance. Continuing hand-crafted Cypher defeats the state-plane thesis.
 
-- Creates `D:\AIcomp` if needed
-- `git clone`s V2 into `D:\AIcomp\mainframe-banking-v2`
-- **Never** writes under `testcpl`, `agents`, or `modernized`
-- Verifies ≥67 `.cbl`, ≥35 `.cpy`, ≥14 `.bms`, LOC-REPORT in 9000–12000
+## Current open priority (P1)
 
-PowerShell (after saving the script, e.g. `D:\AIcomp\Setup-MainframeBankingV2.ps1`):
+1. **BL-068** (architectural priority) — Design / implement agent that can re-derive the V2 job network + wait gates from raw JCL + docs and write them with provenance. Use the existing seed as evaluation target.
+2. BL-060 remainder — program-level / map-level dependency completeness.
+3. BL-059 — Examine KG *read* path during conversion (currently write-only).
+4. BL-057 / BL-058 — batch conversion + E2E gates (lower urgency than the agent-driven discovery principle).
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-cd D:\AIcomp
-# if the .ps1 is only in the chat, save it first, then:
-.\Setup-MainframeBankingV2.ps1
-# later updates:
-.\Setup-MainframeBankingV2.ps1 -PullIfExists
-```
+## Explicit non-goals until BL-068 advances
+- Do not convert V2 COBOL to Java.
+- Do not expand the manual Cypher seed further as the primary growth mechanism.
+- Do not auto-wire ingest_scan (BL-056 remains deferred).
+- Do not touch V1 (`testcpl`).
 
-If git is missing: install Git for Windows. `-SkeletonOnly` makes empty folders and is **not** a substitute for the clone.
+## Suggested first action tomorrow
+Decide whether the next focused deliverable is:
+- A) Spec / scaffold for the JobNetworkIngestionAgent (BL-068), or
+- B) Enrich the existing seed with program-level relationships while keeping the agent path as the stated goal.
 
-Verify:
-
-```powershell
-Test-Path D:\AIcomp\testcpl
-Test-Path D:\AIcomp\mainframe-banking-v2\docs\LOC-REPORT.md
-Get-ChildItem D:\AIcomp\mainframe-banking-v2 -Recurse -Include *.cbl | Measure-Object
-Select-String -Path D:\AIcomp\mainframe-banking-v2\docs\LOC-REPORT.md -Pattern 'Total counted source lines'
-```
-
-Expect V1 path still present; V2 cbl count 67; LOC **10397**.
-
-**Deliverable B (only after A verifies — next session is OK):**
-
-Ingest **V2 job network + wait edges** into Memgraph (BL-060 shaped, using V2 `docs/JOB-NETWORK.md` + JCL predecessors). Do **not** ingest V1’s five programs as the job graph. Do **not** auto-wire ingest_scan. One Cypher verification after persist. Then stop.
-
-Do not start BL-057 (batch-convert all V1 files) or a V2 Java port in the same turn.
+Confirm the decision, then execute **one** deliverable only.
 
 ## Flags / agents (unchanged)
-
 - `--kg-xai` coordinator only; `--force-xai` all agents.
 - Converter `run` must pass `source_file`, `source_code`, `target_tech` (BL-030).
 - JDBC in Docker: host `bank-postgres`, not `localhost`.
