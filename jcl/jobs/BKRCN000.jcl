@@ -1,0 +1,19 @@
+//BKRCN000 JOB (LABV2),'BANK V2 LOCATION RECON',
+//             CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),
+//             NOTIFY=&SYSUID
+//* Synthetic lab system. Not a real bank. Educational / portfolio only.
+//* RC: 0 OK / 4 WARN / 8 WAIT-RETRY / 12 INTEGRITY / 16 SEVERE
+//* Restart: N/A — rerun from top if no DB updates
+//STEPR1   EXEC PGM=BKRCN01
+//STEPLIB  DD   DSN=HUB.LOAD,DISP=SHR
+//ULOCIN   DD   DSN=HUB.MERGE.SORTED(0),DISP=SHR
+//IFR      IF (STEPR1.RC > 8) THEN
+//STEPN    EXEC PGM=BKNTF01
+//UNTF     DD   SYSOUT=*
+//SYSIN    DD   *
+UNMATCHED
+/*
+//         ENDIF
+//STEPR2   EXEC PGM=BKRCN02,COND=(12,LE,STEPR1)
+//STEPLIB  DD   DSN=HUB.LOAD,DISP=SHR
+//UATMIN   DD   DSN=HUB.ATMNET.EXTRACT.D0,DISP=SHR

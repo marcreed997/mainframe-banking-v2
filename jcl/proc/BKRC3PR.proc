@@ -1,0 +1,9 @@
+//BKRC3PR  PROC CYCLE=0
+//* Three-way recon PROC.
+//STEPR3   EXEC PGM=BKRCN03
+//STEPLIB  DD   DSN=HUB.LOAD,DISP=SHR
+//UX3OUT   DD   DSN=HUB.RECON.X3.D&CYCLE(+1),
+//             DISP=(NEW,CATLG,DELETE),
+//             SPACE=(TRK,(1,1)),UNIT=SYSDA
+//SYSOUT   DD   SYSOUT=*
+//         PEND

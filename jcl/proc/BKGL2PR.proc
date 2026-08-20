@@ -1,0 +1,9 @@
+//BKGL2PR  PROC CYCLE=0
+//* GL prove PROC. Do not run if recon not closed (COBOL RC=8).
+//STEPGL2  EXEC PGM=BKGL02
+//STEPLIB  DD   DSN=HUB.LOAD,DISP=SHR
+//UGLRPT   DD   DSN=HUB.GL.PROVE.D&CYCLE(+1),
+//             DISP=(NEW,CATLG,DELETE),
+//             SPACE=(TRK,(1,1)),UNIT=SYSDA
+//SYSOUT   DD   SYSOUT=*
+//         PEND

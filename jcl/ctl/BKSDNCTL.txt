@@ -1,0 +1,2 @@
+* SDN lab file — first 12 = id, rest name
+* HIT if exact name match (score 100)

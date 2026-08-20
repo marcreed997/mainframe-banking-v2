@@ -1,0 +1,24 @@
+//BKVLDPR  PROC LOC=,CYCLE=,GEN=0
+//* Validate inbound extract for one location. Symbolic LOC/CYCLE.
+//* Existence check BEFORE COBOL open to avoid unexplained S013.
+//STEPCHK  EXEC PGM=IEFBR14
+//UTEXTIN  DD   DSN=HUB.&LOC..EXTRACT.D&CYCLE,DISP=SHR
+//* If dataset missing, scheduler should HOLD; JCL may S013 —
+//* production uses IDCAMS LISTCAT MAXCC reset. Lab: LISTCAT first.
+//STEPLST  EXEC PGM=IDCAMS
+//SYSPRINT DD   SYSOUT=*
+//SYSIN    DD   *
+  LISTCAT ENTRIES(HUB.&LOC..EXTRACT.D&CYCLE)
+  IF LASTCC > 0 THEN SET MAXCC = 8
+/*
+//STEPVLD  EXEC PGM=BKVLD01,COND=(8,LE,STEPLST)
+//STEPLIB  DD   DSN=HUB.LOAD,DISP=SHR
+//UTEXTIN  DD   DSN=HUB.&LOC..EXTRACT.D&CYCLE,DISP=SHR
+//UCTL     DD   DSN=HUB.&LOC..VALCTL.D&CYCLE,
+//             DISP=(NEW,CATLG,DELETE),
+//             SPACE=(TRK,(1,1)),UNIT=SYSDA
+//SYSIN    DD   *
+&LOC
+/*
+//SYSOUT   DD   SYSOUT=*
+//         PEND
